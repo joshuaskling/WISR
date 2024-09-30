@@ -78,6 +78,20 @@ def download_attachments(service, msg_id):
     except HttpError as error:
         print(f'An error occurred: {error}')
 
+def upload_attachments(service):
+    """Uploads attachments to google drive"""
+    try:
+        print("Uploading attachments")
+    except HttpError as error:
+        print(f'An error occurred: {error}')
+
+def delete_emails(service):
+    """Delete emails from attachment pull"""
+    try:
+        print("Deleting emails")
+    except HttpError as error:
+        print(f'An error occurred: {error}')
+
 def main():
     # Authenticate with Gmail API
     service = authenticate_gmail()
@@ -95,6 +109,12 @@ def main():
 
     # Download attachments from the found email
     download_attachments(service, msg_id)
+
+    #upload to google drive
+    upload_attachments(service)
+
+    #delete relevant emails
+    delete_emails(service)
 
 if __name__ == '__main__':
     main()
